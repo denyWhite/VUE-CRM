@@ -47,7 +47,7 @@
                     <input
                             type="checkbox"
                             v-model="accept"
-                            @change="ch"
+                            :class="{invalid: $v.accept.dirty && !$v.accept}"
                     />
                     <span>С правилами согласен</span>
 
@@ -93,12 +93,24 @@
             accept: {checked: v => v}
         },
         methods: {
-            submitHandler() {
+            async submitHandler() {
                 if (this.$v.$invalid) {
                     this.$v.$touch()
                     return
                 }
-                this.$router.push("/")
+                const formData = {
+                    'email': this.email,
+                    'password': this.password,
+                    'name': this.name
+                }
+                try {
+                    await this.$store.dispatch('register', formData)
+                    this.$router.push("/")
+                } catch (e) {
+                    console.log(e)
+                }
+
+
             }
         }
     }

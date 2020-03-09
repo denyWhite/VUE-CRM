@@ -16,7 +16,7 @@
                             data-target="dropdown"
                             ref="dropdown"
                     >
-                        USER NAME
+                        {{name}}
                         <i class="material-icons right">arrow_drop_down</i>
                     </a>
 
@@ -49,11 +49,12 @@
             dropdown: null
         }),
         methods: {
-            logout() {
-                console.log("Logout")
+            async logout() {
+                await this.$store.dispatch('logout')
                 this.$router.push('/login?message=logout')
             }
         },
+        /* After DOM load*/
         mounted() {
             this.interval = setInterval(() => {
                 this.date = new Date()
@@ -65,6 +66,12 @@
             if (this.dropdown && this.dropdown.destroy) {
                 this.dropdown.destroy()
             }
+        },
+        computed: {
+            name() {
+                return this.$store.getters.info.name
+            }
         }
+
     }
 </script>
