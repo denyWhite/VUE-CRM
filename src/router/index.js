@@ -48,6 +48,12 @@ const routes = [
         component: () =>import('../views/Profile.vue')
     },
     {
+        path: '/detail/:id',
+        name: 'detail',
+        meta: {layout: 'main', auth: true},
+        component: () =>import('../views/DetailRecord.vue')
+    },
+    {
         path: '/record',
         name: 'record',
         meta: {layout: 'main', auth: true},
