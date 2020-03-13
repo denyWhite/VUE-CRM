@@ -24,7 +24,11 @@
                 <span class="white-text badge" :class="[rec.typeClass]">{{rec.typeText}}</span>
             </td>
             <td>
-                <button class="btn-small btn" @click="$router.push(`/detail/${rec.id}`)">
+                <button
+                        class="btn-small btn"
+                        @click="$router.push(`/detail/${rec.id}`)"
+                        v-tooltip="'Посмотреть запись'"
+                >
                     <i class="material-icons">open_in_new</i>
                 </button>
             </td>
