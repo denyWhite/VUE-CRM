@@ -45,7 +45,7 @@
         </div>
     </div>
 </template>
-
+797956
 <script>
     import {required, minValue} from 'vuelidate/lib/validators'
     export default {

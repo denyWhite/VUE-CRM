@@ -3,6 +3,7 @@ import App from './App.vue'
 import Vuelidate from 'vuelidate'
 import dateFilter from '@/filters/date.filter'
 import currencyFilter from '@/filters/currency.filter'
+import localizeFilter from '@/filters/localize.filter'
 import router from './router'
 import store from './store'
 import messagePlugin from '@/utils/message.plugin'
@@ -27,6 +28,7 @@ Vue.component('Paginate', Paginate)
 Vue.directive('tooltip', tooltipDirective)
 Vue.filter('date', dateFilter)
 Vue.filter('currency', currencyFilter)
+Vue.filter('localize', localizeFilter)
 
 const firebaseConfig = {
     apiKey: "AIzaSyDlBYexekqDnfgwBxGeUyQXQsOZNwl0ZyE",
